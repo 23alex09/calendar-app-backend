@@ -1,5 +1,6 @@
 const express = require( 'express' );
-require( 'dotenv' ).config()
+require( 'dotenv' ).config();
+const cors = require( 'cors' );
 const { dbConnection } = require( './database/config' );
 
 //Crear el servidor de express 
@@ -22,6 +23,7 @@ app.use( express.json() );
 //Cuando hacemos la peticion desde postman el primer parametro lo debemos usar para llegar al endpoint. Seria asi
 // api/auth/new
 app.use( '/api/auth', require( './routes/auth' ) );
+app.use( '/api/events', require( './routes/events' ) );
 //CRUD
 
 //Escuchar peticiones
